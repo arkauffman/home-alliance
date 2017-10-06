@@ -3,8 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "bootstrap-datetimepicker-npm": "^4.17.37-npm",
+    "input-moment": "^0.3.6",
     "react": "^16.0.0",
     "react-bootstrap": "^0.31.3",
+    "react-bootstrap-datetimepicker": "0.0.22",
+    "react-bootstrap-time-picker": "^1.0.3",
     "react-datepicker": "^0.55.0",
     "react-dom": "^16.0.0",
     "react-router": "^4.2.0",

@@ -26,7 +26,17 @@ const Services = (props) => {
                     <option value="Remodeling">Remodeling</option>
                     <option value="Plumbing">Plumbing</option>
                 </select>
-                <Link to='/form'>Next</Link>
+                {props.service ?
+                        <div>
+                            <br />
+                            <Link to='/customer-form'>Next</Link>
+                        </div>
+                    :
+                        <div>
+                            <br />
+                            <p>Select a service to proceed</p>
+                        </div>
+                }
             </div>
 
         </div>

@@ -7,10 +7,10 @@ import {
 import './App.css';
 import NavBar from './../NavBar/NavBar';
 import Services from './../Services/Services';
-import FormOne from './../Services/FormOne';
-import FormTwo from './../Services/FormTwo';
+import CustomerForm from './../CustomerForm/CustomerForm';
+import DateTimeForm from './../DateTimeForm/DateTimeForm';
+import ConfirmationPage from './../ConfirmationPage/ConfirmationPage';
 import moment from 'moment';
-import 'react-datepicker/dist/react-datepicker.css';
 
 class App extends Component {
   constructor(props) {
@@ -21,30 +21,54 @@ class App extends Component {
       email: null,
       phoneNumber: null,
       message: null,
-      date: '',
-      time: null
+      time: 0,
+      date: moment()
     }
+    this.defaultState = this.state;
+
+    this.handleDate = this.handleDate.bind(this);
   }
 
   handleService = (e) => {
-      console.log('EEEEE', e)
-      this.setState({service: e.target.value});
-      // this.props.history.push('/form');
-      // this.context.router.history.push('/form');
-      console.log('service', this.state.service)
+    this.setState({service: e.target.value});
+    console.log('service', this.state.service)
   }
 
   handleChange = (field, e) => {
     this.setState({
       [field]: e.target.value
     });
+    // this.setState({time: this.state.time/3600})
     console.log('FORM STATE', field, 'value', e.target.value)
   }
 
-  handleDate = (date) => {
+  handleTimeChange = (field, e) => {
     this.setState({
-      date: date
+      [field]: e.target.value/3600
     });
+    // this.setState({time: this.state.time/3600})
+    console.log('FORM STATE', field, 'value', e.target.value)
+  }
+
+  // handleTimeChange = (field, time) => {
+  //   // time is returned in seconds, so divide time by the number of seconds
+  //   // in a single hour 10:30 --> 10.5
+  //   console.log('SECONDS TO MINUTES!!', time/3600);
+  //   this.setState({
+  //     [field]: time.target.value/3600
+  //   });
+  // }
+
+  handleDate = (newDate) => {
+    console.log('new date', newDate)
+    this.setState({
+      date: newDate.target.value
+    });
+    console.log('DATE!!!', this.state.date)
+  }
+
+  handleNewService = () => {
+    this.setState(this.defaultState)
   }
 
   handleSubmit = () => {
@@ -58,7 +82,7 @@ class App extends Component {
   render() {
     console.log('state', this.state.service)
     return (
-      <div className="App">
+      <div className='App'>
             <NavBar />
             <Switch>
               <Route exact path='/' render={(props) => {
@@ -66,17 +90,15 @@ class App extends Component {
                   <Services 
                     {...props}
                     updateService={this.updateService}
-                    history={this.props.history}
                     handleService={this.handleService}
                     service={this.state.service} />
                 )
                }}/>
               
-              <Route path='/form' render={(props) => {
+              <Route path='/customer-form' render={(props) => {
                 return (
-                  <FormOne
-                    {...props}
-                    history={this.props.history}                  
+                  <CustomerForm
+                    {...props}                
                     service={this.state.service}
                     name={this.state.name}
                     email={this.state.email}
@@ -88,19 +110,40 @@ class App extends Component {
                 )
               }} />
               
-              <Route path='/formtwo' render={(props) => {
+              <Route path='/date-time-form' render={(props) => {
                 return (
-                  <FormTwo
-                    history={this.props.history}                  
+                  <DateTimeForm                 
+                    service={this.state.service}
+                    name={this.state.name}
+                    
+                    handleChange={this.handleChange}
+                    handleSubmit={this.handleSubmit}
+                    handleTimeChange={this.handleTimeChange}
+                    handleDate={this.handleDate}
+
+
+                    date={this.state.date}
+                    format={this.state.format}
+                    mode={this.state.mode}
+                    inputFormat={this.state.inputFormat}
+
+                    time={this.state.time}
+                  />
+                )
+              }} />
+
+              <Route path='/confirmation' render={(props) => {
+                return (
+                  <ConfirmationPage               
                     service={this.state.service}
                     name={this.state.name}
                     email={this.state.email}
                     phoneNumber={this.state.phoneNumber}
                     message={this.state.message}
-                    handleChange={this.handleChange}
-                    handleSubmit={this.handleSubmit}
-                    selected={this.state.date}
-                    onChange={this.handleDate}
+                    date={this.state.date}
+                    time={this.state.time}
+                    
+                    handleNewService={this.handleNewService}
                   />
                 )
               }} />
