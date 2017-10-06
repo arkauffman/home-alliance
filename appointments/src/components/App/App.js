@@ -9,7 +9,6 @@ import Services from './../Services/Services';
 import CustomerForm from './../CustomerForm/CustomerForm';
 import DateTimeForm from './../DateTimeForm/DateTimeForm';
 import ConfirmationPage from './../ConfirmationPage/ConfirmationPage';
-import moment from 'moment';
 import './App.css';
 
 class App extends Component {
