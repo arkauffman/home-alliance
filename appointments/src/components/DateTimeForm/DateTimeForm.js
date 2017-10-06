@@ -1,7 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import {
-    Button,
     Form,
     FormGroup,
     Col,
@@ -14,21 +13,23 @@ const DateTimeForm = (props) => {
             <div className="container">
                 <div className="panel-info">
                     <h3>Welcome, {props.name}</h3>
+                    <br />
                     <Form horizontal>
                         <FormGroup value={props.date} onChange={(e) => props.handleChange('date', e)}>
                             <Col sm={3}>
                                 <span className='contact-form-font-color'>Date</span>
                             </Col>
                             <Col sm={6}>
-                            <FormControl type="date" placeholder="Date"/>
+                                <FormControl type="date" placeholder="Date"/>
                             </Col>
                         </FormGroup>              
+                        
                         <FormGroup value={props.time} onChange={(e) => props.handleChange('time', e)}>
                             <Col sm={3}>
                                 <span className='contact-form-font-color'>Time</span>
                             </Col>
                             <Col sm={6}>
-                            <FormControl type="time" placeholder="10:30 AM"/>
+                                <FormControl type="time" placeholder="10:30 AM"/>
                             </Col>
                         </FormGroup>              
 
@@ -36,7 +37,7 @@ const DateTimeForm = (props) => {
                             <Col s={12}>
                             {
                                 props.date ?
-                                    <Button><Link to='/confirmation'>Next</Link></Button>
+                                    <Link to='/confirmation'>Next</Link>
                                 :
                                     <p> Fill in all fields </p>
                             }

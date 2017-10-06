@@ -4,13 +4,13 @@ import {
   Route,
   Switch
 } from 'react-router-dom';
-import './App.css';
 import NavBar from './../NavBar/NavBar';
 import Services from './../Services/Services';
 import CustomerForm from './../CustomerForm/CustomerForm';
 import DateTimeForm from './../DateTimeForm/DateTimeForm';
 import ConfirmationPage from './../ConfirmationPage/ConfirmationPage';
 import moment from 'moment';
+import './App.css';
 
 class App extends Component {
   constructor(props) {
@@ -21,7 +21,7 @@ class App extends Component {
       email: null,
       phoneNumber: null,
       message: null,
-      date:null,
+      date: null,
       time: null
     }
     this.defaultState = this.state;
@@ -42,10 +42,16 @@ class App extends Component {
     this.setState(this.defaultState)
   }
 
+  convertTime = (time) => {
+    time = moment(time, 'HH:mm:ss').format('h:mm:ss A');
+    console.log(time)
+    return time;
+  }
+
   render() {
-    console.log('state', this.state.service)
     return (
-      <div className='App'>
+      <Router>
+        <div className='App'>
             <NavBar />
             <Switch>
               <Route exact path='/' render={(props) => {
@@ -55,7 +61,7 @@ class App extends Component {
                     handleService={this.handleService}
                   />
                 )
-               }}/>
+                }}/>
               
               <Route exact path='/customer-form' render={(props) => {
                 return (
@@ -98,11 +104,13 @@ class App extends Component {
                     time={this.state.time}
                     handleDate={this.handleDate}
                     handleNewService={this.handleNewService}
+                    convertTime={this.convertTime}
                   />
                 )
               }} />
             </Switch>
-      </div>
+        </div>
+      </Router>
     );
   }
 }

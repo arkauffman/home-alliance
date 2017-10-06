@@ -1,12 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {Link} from 'react-router-dom';
-import {Button} from 'react-bootstrap';
 
 const Services = (props) => {
     return (
         <div className="container">
             <div className="panel-info">
-                <h1>Select Service</h1>
+                <h3>Select Service</h3>
                 <br />
                 <select value={props.services} onChange={props.handleService}>
                     <option value=''>Select One</option>
@@ -19,7 +18,7 @@ const Services = (props) => {
                 {props.service ?
                         <div>
                             <br />
-                            <Button><Link to='/customer-form'>Next</Link></Button>
+                            <Link to='/customer-form'>Next</Link>
                         </div>
                     :
                         <div>

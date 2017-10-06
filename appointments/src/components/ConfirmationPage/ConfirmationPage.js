@@ -1,10 +1,11 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import moment from 'moment';
 
 const Confirmation = (props) => {
     return (
         props.service && props.name && props.email && props.phoneNumber 
-        && props.message ?
+        && props.message && props.date && props.time ?
             <div className="container">
                 <div className="panel-info">
                     <p>Service: {props.service}</p>
@@ -13,8 +14,7 @@ const Confirmation = (props) => {
                     <p>Phone Number: {props.phoneNumber}</p>
                     <p>Message: {props.message}</p>
                     <p>Appointment Date: {props.date}</p>
-                    <p>Appointment Time: {`${parseInt(props.time) > 12 ?
-                        props.time - 12 : props.time}`}</p>
+                    <p>Appointment Time: {moment(props.time, 'HH:mm:ss').format('h:mm A')}</p>
                     
                     <Link to='/' onClick={props.handleNewService}>Confirm</Link> 
                     &nbsp; | &nbsp;
