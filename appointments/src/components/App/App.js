@@ -21,12 +21,10 @@ class App extends Component {
       email: null,
       phoneNumber: null,
       message: null,
-      time: 0,
-      date: moment()
+      date:null,
+      time: null
     }
     this.defaultState = this.state;
-
-    this.handleDate = this.handleDate.bind(this);
   }
 
   handleService = (e) => {
@@ -38,45 +36,10 @@ class App extends Component {
     this.setState({
       [field]: e.target.value
     });
-    // this.setState({time: this.state.time/3600})
-    console.log('FORM STATE', field, 'value', e.target.value)
-  }
-
-  handleTimeChange = (field, e) => {
-    this.setState({
-      [field]: e.target.value/3600
-    });
-    // this.setState({time: this.state.time/3600})
-    console.log('FORM STATE', field, 'value', e.target.value)
-  }
-
-  // handleTimeChange = (field, time) => {
-  //   // time is returned in seconds, so divide time by the number of seconds
-  //   // in a single hour 10:30 --> 10.5
-  //   console.log('SECONDS TO MINUTES!!', time/3600);
-  //   this.setState({
-  //     [field]: time.target.value/3600
-  //   });
-  // }
-
-  handleDate = (newDate) => {
-    console.log('new date', newDate)
-    this.setState({
-      date: newDate.target.value
-    });
-    console.log('DATE!!!', this.state.date)
   }
 
   handleNewService = () => {
     this.setState(this.defaultState)
-  }
-
-  handleSubmit = () => {
-    console.log('yo!');
-  }
-
-  componentDidMount() {
-    this.state.service;
   }
 
   render() {
@@ -88,14 +51,13 @@ class App extends Component {
               <Route exact path='/' render={(props) => {
                 return (
                   <Services 
-                    {...props}
-                    updateService={this.updateService}
+                    service={this.state.service}
                     handleService={this.handleService}
-                    service={this.state.service} />
+                  />
                 )
                }}/>
               
-              <Route path='/customer-form' render={(props) => {
+              <Route exact path='/customer-form' render={(props) => {
                 return (
                   <CustomerForm
                     {...props}                
@@ -105,29 +67,21 @@ class App extends Component {
                     phoneNumber={this.state.phoneNumber}
                     message={this.state.message}
                     handleChange={this.handleChange}
-                    handleSubmit={this.handleSubmit}
                   />
                 )
               }} />
               
-              <Route path='/date-time-form' render={(props) => {
+              <Route exact path='/date-time-form' render={(props) => {
                 return (
                   <DateTimeForm                 
                     service={this.state.service}
                     name={this.state.name}
-                    
-                    handleChange={this.handleChange}
-                    handleSubmit={this.handleSubmit}
-                    handleTimeChange={this.handleTimeChange}
-                    handleDate={this.handleDate}
-
-
+                    email={this.state.email}
+                    phoneNumber={this.state.phoneNumber}
+                    message={this.state.message}
                     date={this.state.date}
-                    format={this.state.format}
-                    mode={this.state.mode}
-                    inputFormat={this.state.inputFormat}
-
                     time={this.state.time}
+                    handleChange={this.handleChange}                  
                   />
                 )
               }} />
@@ -142,7 +96,7 @@ class App extends Component {
                     message={this.state.message}
                     date={this.state.date}
                     time={this.state.time}
-                    
+                    handleDate={this.handleDate}
                     handleNewService={this.handleNewService}
                   />
                 )

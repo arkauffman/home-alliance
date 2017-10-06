@@ -5,15 +5,14 @@ import {
     Nav,
     NavItem
 } from 'react-bootstrap';
-import './NavBar.css';
 
 const NavBar = (props) => {
     return (
         <div>
             <Navbar 
-            collapseOnSelect
-            bsClass='navbar'
-            fixedTop={true}>
+              collapseOnSelect
+              bsClass='navbar'
+              fixedTop={true}>
               <Navbar.Header>
                 <Navbar.Toggle />
               </Navbar.Header>
