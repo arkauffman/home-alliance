@@ -14,6 +14,7 @@ const Confirmation = (props) => {
                     <p>Phone Number: {props.phoneNumber}</p>
                     <p>Message: {props.message}</p>
                     <p>Appointment Date: {props.date}</p>
+                    {/* formatting time to have AM and PM capability */}
                     <p>Appointment Time: {moment(props.time, 'HH:mm:ss').format('h:mm A')}</p>
                     
                     <Link to='/' onClick={props.handleNewService}>Confirm</Link> 
@@ -26,7 +27,7 @@ const Confirmation = (props) => {
             <div className='panel-info'>
                 <h1>Go <Link to='/'>Home!</Link></h1>
             </div>
-    )
+    );
 };
 
 export default Confirmation;

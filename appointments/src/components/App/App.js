@@ -24,28 +24,25 @@ class App extends Component {
       date: null,
       time: null
     }
+    // setting defaultState to state to help reset entire state upon completion
     this.defaultState = this.state;
   }
 
   handleService = (e) => {
+    // sets a specified service to state
     this.setState({service: e.target.value});
-    console.log('service', this.state.service)
   }
 
   handleChange = (field, e) => {
+    // sets every other part of state to value specified in a form
     this.setState({
       [field]: e.target.value
     });
   }
 
   handleNewService = () => {
+    // resets state when on confirmation page
     this.setState(this.defaultState)
-  }
-
-  convertTime = (time) => {
-    time = moment(time, 'HH:mm:ss').format('h:mm:ss A');
-    console.log(time)
-    return time;
   }
 
   render() {
@@ -104,7 +101,6 @@ class App extends Component {
                     time={this.state.time}
                     handleDate={this.handleDate}
                     handleNewService={this.handleNewService}
-                    convertTime={this.convertTime}
                   />
                 )
               }} />
