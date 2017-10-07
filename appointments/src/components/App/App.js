@@ -23,7 +23,7 @@ class App extends Component {
       date: null,
       time: null
     }
-    // setting defaultState to state to help reset entire state upon completion
+    // setting defaultState to state to help reset state upon completion of form
     this.defaultState = this.state;
   }
 
