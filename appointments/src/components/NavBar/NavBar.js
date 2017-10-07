@@ -10,7 +10,7 @@ const NavBar = (props) => {
         <div>
             <Navbar 
               bsClass='navbar'
-              fixedTop={true} >
+              fixedTop={true}>
               <Navbar.Collapse>
                 <Nav pullLeft>
                   <NavItem className="title">Home Alliance</NavItem>
