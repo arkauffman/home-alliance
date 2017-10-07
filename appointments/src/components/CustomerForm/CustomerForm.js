@@ -61,6 +61,7 @@ const CustomerForm = (props) => {
                 </div>
             </div>
         :
+            // if this information is lacking, it will provide a link to go to the home page
             <div className='panel-info'>
                 <h1>Go <Link to='/'>Home!</Link></h1>
             </div>
