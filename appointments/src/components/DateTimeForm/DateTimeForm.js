@@ -11,8 +11,8 @@ import {
 const DateTimeForm = (props) => {
     return (
         props.service && props.name && props.email && props.phoneNumber && props.message ?
-            <div className="container">
-                <div className="panel-info">
+            <div className='container'>
+                <div className='panel-info'>
                     <h3>Welcome, {props.name}</h3>
                     <br />
                     <Form horizontal>
@@ -21,7 +21,7 @@ const DateTimeForm = (props) => {
                                 <span className='contact-form-font-color'>Date</span>
                             </Col>
                             <Col sm={6}>
-                                <FormControl type="date" placeholder="Date"/>
+                                <FormControl type='date' placeholder='Date'/>
                             </Col>
                         </FormGroup>              
                         
@@ -30,7 +30,7 @@ const DateTimeForm = (props) => {
                                 <span className='contact-form-font-color'>Time</span>
                             </Col>
                             <Col sm={6}>
-                                <FormControl type="time" placeholder="10:30 AM"/>
+                                <FormControl type='time'/>
                             </Col>
                         </FormGroup>              
 

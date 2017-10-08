@@ -7,9 +7,9 @@ const Confirmation = (props) => {
     return (
         props.service && props.name && props.email && props.phoneNumber 
         && props.message && props.date && props.time ?
-            <div className="container">
-                <div className="panel-info">
-                    <div className="static-modal">
+            <div className='container'>
+                <div className='panel-info'>
+                    <div className='static-modal'>
                         <Modal.Dialog>
                             <Modal.Header>
                                 <Modal.Title>Service Confirmation</Modal.Title>
