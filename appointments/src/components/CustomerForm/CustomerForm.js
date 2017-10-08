@@ -4,23 +4,24 @@ import {
     Form,
     FormGroup,
     FormControl,
-    Col
+    Col,
+    Button
 } from 'react-bootstrap';
 
 const CustomerForm = (props) => {
     return (
         props.service ?
-            <div className="container">
-                <div className="panel-info">
+            <div className='container'>
+                <div className='panel-info'>
                     <h3>{props.service}</h3>
                     <br />
                     <Form horizontal>
-                        <FormGroup placeholder="Name" value={props.name} onChange={(e) => props.handleChange('name', e)}>
+                        <FormGroup placeholder='Name' value={props.name} onChange={(e) => props.handleChange('name', e)}>
                             <Col sm={3}>
                                 <span className='contact-form-font-color'>Name</span> 
                             </Col>
                             <Col sm={6}>
-                                <FormControl type="name" placeholder="Name"/>
+                                <FormControl type='name' placeholder='Name'/>
                             </Col>
                         </FormGroup>
                         <FormGroup value={props.email} onChange={(e) => props.handleChange('email', e)}>
@@ -28,7 +29,7 @@ const CustomerForm = (props) => {
                                 <span className='contact-form-font-color'>Email</span>
                             </Col>
                             <Col sm={6}>
-                                <FormControl type="email" placeholder="Email"/>
+                                <FormControl type='email' placeholder='Email'/>
                             </Col>
                         </FormGroup>
                         <FormGroup value={props.phoneNumber} onChange={(e) => props.handleChange('phoneNumber', e)}>
@@ -36,7 +37,7 @@ const CustomerForm = (props) => {
                                 <span className='contact-form-font-color'>Phone Number</span>
                             </Col>
                             <Col sm={6}>
-                                <FormControl type="number" placeholder="Phone Number"/>
+                                <FormControl type='number' placeholder='Phone Number'/>
                             </Col>
                         </FormGroup>
                         <FormGroup value={props.message} onChange={(e) => props.handleChange('message', e)}>
@@ -44,14 +45,14 @@ const CustomerForm = (props) => {
                                 <span className='contact-form-font-color'>Message</span>
                             </Col>
                             <Col sm={6}>
-                                <FormControl type="text" placeholder="Message"/>
+                                <FormControl componentClass='textarea' placeholder='Message'/>
                             </Col>
                         </FormGroup>
                         <FormGroup>
                             <Col s={8}>
                             {
                                 props.name && props.email && props.phoneNumber && props.message ?
-                                    <Link to='/date-time-form'>Next</Link>
+                                    <Button><Link to='/date-time-form'>Next</Link></Button>
                                 :
                                     <p> Fill in all fields </p>
                             }

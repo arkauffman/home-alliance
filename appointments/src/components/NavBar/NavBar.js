@@ -1,8 +1,10 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import {
     Navbar,
     Nav,
-    NavItem
+    NavItem,
+    LinkContainer
 } from 'react-bootstrap';
 
 const NavBar = (props) => {
@@ -13,7 +15,7 @@ const NavBar = (props) => {
               fixedTop={true}>
               <Navbar.Collapse>
                 <Nav pullLeft>
-                  <NavItem className="title">Home Alliance</NavItem>
+                  <NavItem>Home Alliance</NavItem>
                 </Nav>
               </Navbar.Collapse>
             </Navbar>

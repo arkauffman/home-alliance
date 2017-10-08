@@ -4,7 +4,8 @@ import {
     Form,
     FormGroup,
     Col,
-    FormControl
+    FormControl,
+    Button
 } from 'react-bootstrap';
 
 const DateTimeForm = (props) => {
@@ -37,7 +38,7 @@ const DateTimeForm = (props) => {
                             <Col s={12}>
                             {
                                 props.date ?
-                                    <Link to='/confirmation'>Next</Link>
+                                   <Button><Link to='/confirmation'>Next</Link></Button>
                                 :
                                     <p> Fill in all fields </p>
                             }

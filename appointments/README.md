@@ -20,4 +20,6 @@ your repair request. Lastly, confirm your request!
 
 ## Notes
 * This app is deployed on heroku, therefore there may be a delay in the loading process.
-* When forking the repository, run 'npm i' in the command line in order to install all the necessary modules that makes this program run.
+* You can clone or download this project to your computer, cd into the directory in which the project is stored
+* Run npm i to download all of the apps dependencies 
+* Run npm start in order to start the application - will run on http://localhost:3000

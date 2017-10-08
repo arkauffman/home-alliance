@@ -1,24 +1,28 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import {
+    Button
+} from 'react-bootstrap';
 
 const Services = (props) => {
     return (
-        <div className="container">
-            <div className="panel-info">
-                <h3>Select Service</h3>
+        <div className='container'>
+            <div className='panel-info'>
+                <h1>Welcome to Home Alliance!</h1>
+                <h3>Please Select Your Service</h3>
                 <br />
                 <select value={props.services} onChange={props.handleService}>
                     <option value=''>Select One</option>
-                    <option value="Air Conditioning">Air Conditioning</option>
-                    <option value="Appliance Repair">Appliance Repair</option>
-                    <option value="Construction">Construction</option>
-                    <option value="Remodeling">Remodeling</option>
-                    <option value="Plumbing">Plumbing</option>
+                    <option value='Air Conditioning'>Air Conditioning</option>
+                    <option value='Appliance Repair'>Appliance Repair</option>
+                    <option value='Construction'>Construction</option>
+                    <option value='Remodeling'>Remodeling</option>
+                    <option value='Plumbing'>Plumbing</option>
                 </select>
                 {props.service ?
                         <div>
                             <br />
-                            <Link to='/customer-form'>Next</Link>
+                            <Button><Link to='/customer-form'>Next</Link></Button>
                         </div>
                     :
                         <div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import {Modal, Button} from 'react-bootstrap';
 import moment from 'moment';
 
 const Confirmation = (props) => {
@@ -8,19 +9,30 @@ const Confirmation = (props) => {
         && props.message && props.date && props.time ?
             <div className="container">
                 <div className="panel-info">
-                    <p>Service: {props.service}</p>
-                    <p>Name: {props.name}</p>
-                    <p>Email: {props.email}</p>
-                    <p>Phone Number: {props.phoneNumber}</p>
-                    <p>Message: {props.message}</p>
-                    <p>Appointment Date: {props.date}</p>
-                    {/* formatting time to have AM and PM capability */}
-                    <p>Appointment Time: {moment(props.time, 'HH:mm:ss').format('h:mm A')}</p>
-                    
-                    <Link to='/' onClick={props.handleNewService}>Confirm</Link> 
-                    &nbsp; | &nbsp;
-                    <Link to='/' onClick={props.handleNewService}>Start Over</Link>
-                    
+                    <div className="static-modal">
+                        <Modal.Dialog>
+                            <Modal.Header>
+                                <Modal.Title>Service Confirmation</Modal.Title>
+                            </Modal.Header>
+
+                            <Modal.Body>
+                                <h4>Service: {props.service}</h4>
+                                <h4>Name: {props.name}</h4>
+                                <h4>Email: {props.email}</h4>
+                                <h4>Phone Number: {props.phoneNumber}</h4>
+                                <h4>Message: {props.message}</h4>
+                                <h4>Appointment Date: {props.date}</h4>
+                                {/* formatting time to have AM and PM capability */}
+                                <h4>Appointment Time: {moment(props.time, 'HH:mm:ss').format('h:mm A')}</h4>
+                            </Modal.Body>
+
+                            <Modal.Footer>
+                                <Button><Link to='/' onClick={props.handleNewService}>Start Over</Link></Button>
+                                &nbsp; &nbsp; | &nbsp; &nbsp;
+                                <Button><Link to='/' onClick={props.handleNewService}>Confirm</Link></Button>
+                            </Modal.Footer>
+                        </Modal.Dialog>
+                    </div>
                 </div>
             </div>
         :
