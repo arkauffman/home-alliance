@@ -13,7 +13,7 @@ your repair request. Lastly, confirm your request!
 * Bootstrap
 
 
-## Trello board link and deployed app link
+## Deployed app link
 * Check out the [Deployed App!](http://homealliance.herokuapp.com/)
 * Check out the [GitHub Repository](http://github.com/arkauffman/home-alliance)
 
